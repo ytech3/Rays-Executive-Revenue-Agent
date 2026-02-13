@@ -6,7 +6,7 @@
 -- LAST UPDATED: 2026-02-11
 -- ============================================================================
 -- 
--- CHANGE
+-- CHANGE LOG:
 -- 2026-02-11: Fixed YTD offsets - transaction data uses -729, membership uses -730
 --             This aligns with Tableau boundary calculations for both data types
 -- 2026-02-10: Added membership data for 2023 and 2024
