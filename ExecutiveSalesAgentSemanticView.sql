@@ -7,9 +7,15 @@ CREATE OR REPLACE SEMANTIC VIEW TBRDP_DW_PROD.IM_RPT.EXECUTIVE_SEMANTIC_VIEW
     ticket_sales.season_year AS SEASON_YEAR,
     ticket_sales.ticket_type AS TICKET_TYPE_GROUPING,
     ticket_sales.data_source AS DATA_SOURCE,
+    ticket_sales.purchase_date AS PURCHASE_DATE
+      WITH SYNONYMS = ('date', 'sale date', 'transaction date', 'purchase day', 'when'),
     ticket_sales.purchase_year AS YEAR(PURCHASE_DATE),
     ticket_sales.purchase_month AS MONTHNAME(PURCHASE_DATE),
     ticket_sales.purchase_quarter AS CONCAT('Q', QUARTER(PURCHASE_DATE)),
+    ticket_sales.purchase_week AS WEEKOFYEAR(PURCHASE_DATE)
+      WITH SYNONYMS = ('week number', 'week of year', 'calendar week', 'week'),
+    ticket_sales.purchase_day_of_week AS DAYNAME(PURCHASE_DATE)
+      WITH SYNONYMS = ('day of week', 'weekday', 'day name'),
     ticket_sales.is_2024_ytd AS IS_2024_YTD,
     ticket_sales.is_2023_ytd AS IS_2023_YTD,
     ticket_sales.is_current_ytd AS IS_CURRENT_YTD
